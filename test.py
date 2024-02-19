@@ -15,7 +15,7 @@ if not os.path.exists("output.txt"):
 #
 # Lee el contenido del archivo output.txt
 dataframe = pd.read_csv(
-    "output.txt", sep=";", header=None, names=["word", "count"]
+    "output.txt", sep="\t", header=None, names=["word", "count"]
 )
 dataframe = dataframe.set_index("word")
 series = dataframe["count"]

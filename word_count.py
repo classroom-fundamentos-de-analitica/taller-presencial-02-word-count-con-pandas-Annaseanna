@@ -11,8 +11,8 @@ def load_input(input_directory):
     # entrada en el DataFrame.
     """Load text files in 'input_directory/'"""
     filenames = glob.glob(input_directory + "/*.*")
-    dataframes=[pd.read_csv(filename, sep=";", names=["text"]) for filename in filenames]
     dataframes=pd.concat(dataframes).reset_index(drop=True)
+    dataframes=[pd.read_csv(filename, sep=";", names=["text"]) for filename in filenames]
     return dataframes
 
 def clean_text(dataframe):
@@ -45,7 +45,7 @@ def count_words(dataframe):
 def save_output(dataframe, output_filename):
     """Save output to a file."""
 
-    dataframe.to_csv(output_filename,index=False, sep=";",header=False)
+    dataframe.to_csv(output_filename,index=False, sep="\t",header=False)
 
 
 #
